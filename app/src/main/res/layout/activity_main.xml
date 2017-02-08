@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zerju.demogame.MainActivity">
+
+    <com.zerju.demogame.GamePanel
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gamePanelMain"
+        android:visibility="visible"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gameOverMain"
+        android:visibility="gone">
+
+        <TextView
+            android:text="@string/gameOverText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:id="@+id/gameOverText"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="40dp"/>
+
+        <TextView
+            android:hint="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scoreText"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/yourScoreText"
+            android:textSize="20dp"
+            android:layout_marginLeft="45dp"/>
+
+        <Button
+            android:text="@string/playAgainBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPlayAgain"
+            android:layout_below="@+id/btnMainMenu"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="@string/gameOverScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="98dp"
+            android:id="@+id/scoreText"
+            android:textSize="30dp"
+            android:layout_below="@+id/gameOverText"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:text="@string/mainMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:id="@+id/btnMainMenu"
+            android:layout_below="@+id/yourScoreText"
+            android:layout_alignEnd="@+id/btnPlayAgain" />
+
+        <TextView
+            android:text="@string/highScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="122dp"
+            android:id="@+id/highScoreLabel"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:hint="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/highScoreText"
+            android:layout_below="@+id/highScoreLabel"
+            android:layout_alignStart="@+id/highScoreLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="45dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DemoGame</string>
+    <string name="homeName">Don\'t die</string>
+    <string name="playButton">Play</string>
+    <string name="settingsButton">Settings</string>
+
+    <string name="gameOverText">Game Over</string>
+    <string name="gameOverScore">Score</string>
+    <string name="mainMenuBtn">Main menu</string>
+    <string name="playAgainBtn">Play again</string>
+    <string name="highScore">High Score</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
