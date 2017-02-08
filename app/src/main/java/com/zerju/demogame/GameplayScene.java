@@ -1,17 +1,13 @@
 package com.zerju.demogame;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.View;
 
 import java.lang.ref.WeakReference;
 
@@ -26,7 +22,7 @@ public class GameplayScene implements Scene {
     public static Context mainContext;
     private RectPlayer player;
     private Point playerPoint;
-    private ObsticleManager obsticleManager;
+    private ObstacleManager obstacleManager;
    // private SceneManager sm = new SceneManager();
 
     private boolean movingPlayer = false;
@@ -44,7 +40,7 @@ public class GameplayScene implements Scene {
         playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT/4);
         player.update(playerPoint);
 
-        obsticleManager = new ObsticleManager(200, 350, 75, Color.BLACK);
+        obstacleManager = new ObstacleManager(200, 350, 75, Color.BLACK);
     }
 
 
@@ -53,7 +49,7 @@ public class GameplayScene implements Scene {
         playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT/4);
         player.update(playerPoint);
 
-        obsticleManager = new ObsticleManager(200, 350, 75, Color.BLACK);
+        obstacleManager = new ObstacleManager(200, 350, 75, Color.BLACK);
 
         movingPlayer = false;
     }
@@ -67,13 +63,13 @@ public class GameplayScene implements Scene {
         }
         if(!gameOver) {
             player.update(playerPoint);
-            obsticleManager.update();
-            if(obsticleManager.playerCollide(player)){
+            obstacleManager.update();
+            if(obstacleManager.playerCollide(player)){
                 gameOver = true;
                 gameOverTime = System.currentTimeMillis();
                 reset();
             }else {
-                obsticleManager.playerPointUp(player);
+                obstacleManager.playerPointUp(player);
             }
         }
     }
@@ -83,7 +79,7 @@ public class GameplayScene implements Scene {
         canvas.drawColor(Color.WHITE);
 
         player.draw(canvas);
-        obsticleManager.draw(canvas);
+        obstacleManager.draw(canvas);
 
         if(gameOver){
            /* Activity activity = mActivityRef.get();

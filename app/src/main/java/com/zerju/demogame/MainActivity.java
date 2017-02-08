@@ -1,23 +1,10 @@
 package com.zerju.demogame;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,8 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.zerju.demogame.entities.Player;
-
-import java.io.IOException;
 
 import io.realm.Realm;
 
@@ -104,15 +89,15 @@ public class MainActivity extends Activity {
 
                                 Player player1 = new Player();
 
-                                player1.setHighScore(ObsticleManager.score);
+                                player1.setHighScore(ObstacleManager.score);
                                 player1.setId(1);
                                 realm.createObject(Player.class, 1);
 
                             } else {
-                                if (player.getHighScore() < ObsticleManager.score) {
+                                if (player.getHighScore() < ObstacleManager.score) {
                                     Player player1 = new Player();
                                     player1.setId(1);
-                                    int highScore = ObsticleManager.score;
+                                    int highScore = ObstacleManager.score;
                                     player1.setHighScore(highScore);
                                     realm.copyToRealmOrUpdate(player1);
 
@@ -123,11 +108,12 @@ public class MainActivity extends Activity {
                             findViewById(R.id.gamePanelMain).setVisibility(View.GONE);
                             findViewById(R.id.gameOverMain).setVisibility(View.VISIBLE);
                             realm.commitTransaction();
-                            finalScore.setText(String.valueOf(ObsticleManager.score));
+                            finalScore.setText(String.valueOf(ObstacleManager.score));
                             highScoreText.setText(String.valueOf(highScore));
                             playAgain.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+                                    ObstacleManager.score = 0;
                                     findViewById(R.id.gamePanelMain).setVisibility(View.VISIBLE);
                                     findViewById(R.id.gameOverMain).setVisibility(View.GONE);
                                     findViewById(R.id.gamePanelMain).invalidate();
@@ -139,13 +125,14 @@ public class MainActivity extends Activity {
                             mainMenu.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+                                    ObstacleManager.score = 0;
                                     GameplayScene.gameOver = false;
                                     findViewById(R.id.gamePanelMain).invalidate();
                                     finish();
                                     //       startActivity(new Intent(MainActivity.this,Main2Activity.class));
                                 }
                             });
-                            ObsticleManager.score = 0;
+
                         }
                     }
                 });

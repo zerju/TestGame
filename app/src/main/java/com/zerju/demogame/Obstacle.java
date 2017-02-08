@@ -8,14 +8,14 @@ import android.graphics.Rect;
 /**
  * Created by jureLaptop on 8. 02. 2017.
  */
-public class Obsticle implements GameObject{
+public class Obstacle implements GameObject{
 
     private Rect rectangle3;
     private Rect rectangle;
     private Rect rectangle2;
     private int color;
 
-    public Obsticle(int rectHeight, int color, int startX, int startY, int playerGap){
+    public Obstacle(int rectHeight, int color, int startX, int startY, int playerGap){
         this.color = color;
         rectangle = new Rect(0,startY, startX, startY + rectHeight);
         rectangle2 = new Rect(startX + playerGap, startY, Constants.SCREEN_WIDTH, startY + rectHeight);
