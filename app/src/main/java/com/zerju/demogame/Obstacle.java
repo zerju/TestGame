@@ -5,9 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-/**
- * Created by jureLaptop on 8. 02. 2017.
- */
+
 public class Obstacle implements GameObject{
 
     private Rect rectangle3;

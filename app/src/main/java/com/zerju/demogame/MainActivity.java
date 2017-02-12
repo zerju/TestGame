@@ -1,6 +1,7 @@
 package com.zerju.demogame;
 
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -38,6 +39,8 @@ public class MainActivity extends Activity {
         Constants.SCREEN_WIDTH = dm.widthPixels;
         Constants.SCREEN_HEIGHT = dm.heightPixels;
         setContentView(R.layout.activity_main);
+
+
 
         mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.big_boss_2_0);
 
@@ -87,10 +90,10 @@ public class MainActivity extends Activity {
                             Player player = realm.where(Player.class).findFirst();
                             if (player == null) {
 
-                                Player player1 = new Player();
+                                player = new Player();
 
-                                player1.setHighScore(ObstacleManager.score);
-                                player1.setId(1);
+                                player.setHighScore(ObstacleManager.score);
+                                player.setId(1);
                                 realm.createObject(Player.class, 1);
 
                             } else {
@@ -103,8 +106,10 @@ public class MainActivity extends Activity {
 
                                 }
                             }
-
-                            int highScore = player.getHighScore();
+                            int highScore = 0;
+                            if(player != null) {
+                                highScore = player.getHighScore();
+                            }
                             findViewById(R.id.gamePanelMain).setVisibility(View.GONE);
                             findViewById(R.id.gameOverMain).setVisibility(View.VISIBLE);
                             realm.commitTransaction();

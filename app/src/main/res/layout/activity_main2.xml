@@ -12,6 +12,8 @@
     android:background="@drawable/menu_gradient"
     android:animateLayoutChanges="true">
 
+
+
     <Button
         android:text="@string/playButton"
         android:layout_width="wrap_content"

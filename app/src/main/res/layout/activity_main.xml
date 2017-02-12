@@ -16,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/gameOverMain"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/gamePanelMain">
 
         <TextView
             android:text="@string/gameOverText"
@@ -80,10 +82,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/highScoreText"
             android:layout_below="@+id/highScoreLabel"
-            android:layout_alignStart="@+id/highScoreLabel"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="45dp"/>
+            android:layout_marginTop="5dp"/>
     </RelativeLayout>
 
 </RelativeLayout>

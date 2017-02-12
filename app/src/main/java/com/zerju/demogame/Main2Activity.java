@@ -1,25 +1,26 @@
 package com.zerju.demogame;
 
+import android.app.FragmentTransaction;
 import android.app.WallpaperManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import com.zerju.demogame.*;
 
 public class Main2Activity extends AppCompatActivity {
 
     private Button playButton;
     MediaPlayer mediaPlayer;
+    private Button settingsButton;
     int length;
     public static Drawable wallpaperDrawable;
     public static Bitmap wallpaper;
@@ -34,6 +35,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
         playButton = (Button) findViewById(R.id.playButton);
+        settingsButton = (Button) findViewById(R.id.settingsButton);
 
         PackageManager pm = getApplicationContext().getPackageManager();
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(this);
@@ -67,6 +69,13 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(intent, bundle);//start new activity with animation
+            }
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
             }
         });
     }
